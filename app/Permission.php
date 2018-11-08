@@ -3,12 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Role;
 
 class Permission extends Model
 {
     public function permission_users()
     {
     	return $this->belongsToMany(User::class,'user_permission');
+
+    	user_permissions
     }
 
     public function permission_roles()
