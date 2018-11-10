@@ -32,12 +32,12 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class,'user_role');
+        return $this->belongsToMany(Role::class,'user_roles');
     }
 
 
     public function user_permissions()
     {
-        return $this->belongsToMany(Permission::class,'user_permission');
+        return $this->belongsToMany(Permission::class,'user_permissions');
     }
 }
