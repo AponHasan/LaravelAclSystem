@@ -41,7 +41,7 @@
 								</td>
 
 								<td>
-									<a href="#"><span class="btn btn-warning btn-sm">Edit</span></a> ||
+									<a href="{{route('user.edit',$user->id)}}"><span class="btn btn-warning btn-sm">Edit</span></a> ||
 									<a href="#"><span class="btn btn-danger btn-sm">Delete</span></a>
 								</td>								
 							</tr>
