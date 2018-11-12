@@ -54,4 +54,33 @@ class HomeController extends Controller
         $permissions=Permission::all();
         return view('permission',compact('permissions'));
     }
+
+
+public function userUpdate(Request $request,$id)
+    {
+        /**Detach or Remove User previous Role */
+        $user=User::where('id',$id)->first();
+        $user->roles()->detach();
+        $user->user_permissions()->detach();
+         if(is_array($request['role']))
+        {
+            foreach($request['role'] as $role)
+            {
+               $user->roles()->attach(Role::where('id',$role)->first());
+               $role=Role::with('role_permissions')->where('id',$role)->first();
+            
+              foreach ($role->role_permissions as $permission) 
+              {
+                if (! $user->user_permissions()->sync($permission,false)) 
+                {
+                    $user->user_permissions()->attach($permission);
+                }
+                    
+              }
+            }
+             
+        }
+          return redirect()->route('user.list');
+        
+    }
 }
