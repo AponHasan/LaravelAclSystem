@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/manage-user','HomeController@userList')->name('user.list');
+Route::get('/update-user/{id}','HomeController@userEdit')->name('user.edit');
+
 
 Route::get('/manage-role','HomeController@roleList')->name('role.list');
 

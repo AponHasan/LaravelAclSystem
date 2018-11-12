@@ -35,6 +35,14 @@ class HomeController extends Controller
         return view('user',compact('users'));
     }
 
+    public function userEdit($id)
+    {
+        $user =User::with('roles','user_permissions')->findOrFail($id);
+        $roles=Role::all();
+        $permissions=Permission::all();
+        return view('updatePages.user_edit',compact('user','roles','permissions'));
+    }
+
     public function roleList()
     {
        $roles=Role::with('role_permissions')->get();
