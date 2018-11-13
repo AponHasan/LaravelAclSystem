@@ -25,5 +25,8 @@ Route::PUT('/update-user/{id}','HomeController@userUpdate')->name('user.update')
 
 
 Route::get('/manage-role','HomeController@roleList')->name('role.list');
+Route::get('/update-role/{id}','HomeController@roleEdit')->name('role.edit');
+
 
 Route::get('/manage-permission','HomeController@permissionList')->name('permission.list');
+Route::get('/update-permission','HomeController@permissionEdit')->name('permission.edit');

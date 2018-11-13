@@ -43,20 +43,7 @@ class HomeController extends Controller
         return view('updatePages.user_edit',compact('user','roles','permissions'));
     }
 
-    public function roleList()
-    {
-       $roles=Role::with('role_permissions')->get();
-        return view('role',compact('roles'));
-    }
-
-    public function permissionList()
-    {
-        $permissions=Permission::all();
-        return view('permission',compact('permissions'));
-    }
-
-
-public function userUpdate(Request $request,$id)
+    public function userUpdate(Request $request,$id)
     {
         /**Detach or Remove User previous Role */
         $user=User::where('id',$id)->first();
@@ -80,7 +67,36 @@ public function userUpdate(Request $request,$id)
             }
              
         }
-          return redirect()->route('user.list');
-        
+          return redirect()->route('user.list'); 
     }
+
+
+    public function roleList()
+    {
+       $roles=Role::with('role_permissions')->get();
+        return view('role',compact('roles'));
+    }
+
+
+
+    public function roleEdit(Request $request,$id)
+    {
+        $role = Role::with('role_permissions')->findOrFail($id);
+        return $role;
+    }
+
+
+
+    public function permissionList()
+    {
+        $permissions=Permission::all();
+        return view('permission',compact('permissions'));
+    }
+
+    public function permissionEdit()
+    {
+        return 'sdhdsjhsdahsdaih';
+    }
+
+
 }
