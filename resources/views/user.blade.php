@@ -40,16 +40,13 @@
 									{{$user->user_permissions->implode('name',', ')}}
 								</td>
 
-								<td>
-									<a href="{{route('user.edit',$user->id)}}"><span class="btn btn-warning btn-sm">Edit</span></a> ||
-									<a href="#"><span class="btn btn-danger btn-sm">Delete</span></a>
-								</td>	
+									
 								<td>
 				                @permission('Role-Update')
-				                	<a href="{{route('user.edit',$user->id)}}"><span class="btn btn-info">Edit</span></a>::
+				                	<a href="{{route('user.edit',$user->id)}}"><span class="btn btn-warning btn-sm">Edit</span></a> || 
 				                @endpermission
 				                @permission('Role-Delete')
-				                	<a href="#"><span class="btn btn-danger">Delete</span></a>
+				                	<a href="#"><span class="btn btn-danger btn-sm">Delete</span></a>
 				                @endpermission
 				                </td>							
 							</tr>

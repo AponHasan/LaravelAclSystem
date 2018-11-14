@@ -29,4 +29,4 @@ Route::get('/update-role/{id}','HomeController@roleEdit')->name('role.edit');
 
 
 Route::get('/manage-permission','HomeController@permissionList')->name('permission.list');
-Route::get('/update-permission','HomeController@permissionEdit')->name('permission.edit');
+Route::get('/update-permission/{id}','HomeController@permissionEdit')->name('permission.edit');

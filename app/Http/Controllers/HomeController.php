@@ -94,9 +94,9 @@ class HomeController extends Controller
         return view('permission',compact('permissions'));
     }
 
-    public function permissionEdit()
+    public function permissionEdit($id)
     {
-        return 'sdhdsjhsdahsdaih';
+       return $id; 
     }
 
 
